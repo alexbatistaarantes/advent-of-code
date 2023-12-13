@@ -42,13 +42,14 @@ class GearRatios:
         for symbol in symbols:
             min_row = max(symbol['row']-1, 0)
             max_row = min(symbol['row']+1, height)
-            min_col = max(symbol['col']-1, 0)
-            max_col = min(symbol['col']+1, width)
 
             # Iterate from previous to next row
             for row in range(min_row, max_row+1):
                 # Iterate through numbers in current row
                 for number in numbers[row]:
+                    min_col = max(symbol['col']-1, 0)
+                    max_col = min(symbol['col']+1, width)
+
                     # Checks if either the beggining or the ending of the number range is in the adjacent area of the symbol
                     if min_col <= number['span'][0] <= max_col or min_col <= number['span'][1]-1 <= max_col:
                         symbol['adjacents'].append(number['value'])
