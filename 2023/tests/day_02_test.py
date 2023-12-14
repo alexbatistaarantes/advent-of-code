@@ -4,7 +4,7 @@ from solutions import *
 class TestSolutions(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.input = """\
+        self.test_input = """\
 Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
 Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
@@ -16,7 +16,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
         cubes = {'red': 12, 'green': 13, 'blue': 14}
         correct_answer = 8
         
-        result = day_02.CubeConundrum.get_possible_games(self.input, cubes)
+        result = day_02.CubeConundrum.get_possible_games(self.test_input, cubes)
 
         self.assertEqual(correct_answer, result)
 
@@ -24,7 +24,7 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"""
 
         correct_answer = 2286
 
-        result = day_02.CubeConundrum.get_power_from_games(self.input)
+        result = day_02.CubeConundrum.get_power_from_games(self.test_input)
 
         self.assertEqual(correct_answer, result)
 
