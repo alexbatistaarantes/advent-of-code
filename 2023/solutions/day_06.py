@@ -17,15 +17,9 @@ class WaitForIt:
 
     def get_number_of_ways_to_beat_record_from_sheet(sheet):
 
-        time, record = map(lambda m: int(m.replace(' ', '')), findall(r"((?:\d+ *)+)", txt, flags=MULTILINE))
+        time, record = map(lambda m: int(m.replace(' ', '')), findall(r"((?:\d+ *)+)", sheet, flags=MULTILINE))
         return WaitForIt.get_number_of_ways_to_beat_record(time, record)
 
     def get_number_of_ways_to_beat_record(time, record):
         return len([1 for time_holding in range(1, time) if (time-time_holding)*time_holding > record])
 
-
-txt = """\
-Time:        40     82     84     92
-Distance:   233   1011   1110   1487"""
-
-print(WaitForIt.get_number_of_ways_to_beat_record_from_sheet(txt))

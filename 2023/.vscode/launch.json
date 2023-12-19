@@ -9,10 +9,10 @@
             "type": "python",
             "request": "launch",
             "justMyCode": true,
-            "purpose": ["debug-test"],
             "env": {
                 "PYTHONPATH": "${workspaceRoot}",
             },
+            "purpose": ["debug-test", "debug-in-terminal"],
         }
     ]
 }

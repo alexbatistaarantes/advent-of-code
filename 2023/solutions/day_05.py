@@ -54,7 +54,6 @@ class IfYouGiveASeedAFertilizer:
 
         # iterate through all maps
         for map_ranges in maps.values():
-            new_values = []
             # iterate through values
             for index in range(len(values)):
                 value = values[index]
@@ -64,20 +63,20 @@ class IfYouGiveASeedAFertilizer:
                     
                     # GAVE UP AND USED [THIS ONE](https://github.com/mgtezak/Advent_of_Code/blob/master/2023/Day_05.py) SO I COULD MOVE ON
                     if seed_is_range: 
-                        # start of current value range is between map range
-                        if map_range[0] <= value[0] < map_range[0]+map_range[1]:
-                            # new range, from either until last value from current one (range is fully inserted in map range), or last value from map range
-                            range = min(value[0]+value[1], map_range[0]+map_range[1]) - value[0]
-                            new_values.append(value[0], range)
-                            # 
-                            value[0] = value[0] + range
-                            value[1] -= range
-                        # end of the current value range is between map range
-                        if map_range[1] <= value[0]+value[1] < map_range[0]+map_range[1]:
-                            range = min(value[0]+value[1], map_range[0]+map_range[1]) - value[0]
-                            new_values.append(value[0], range)
-                            value[0] = value[0] + range
-                            value[1] -= range
+                            # start of current value range is between map range
+                            if map_range[0] <= value[0] < map_range[0]+map_range[1]:
+                                # new range, from either until last value from current one (range is fully inserted in map range), or last value from map range
+                                range = min(value[0]+value[1], map_range[0]+map_range[1]) - value[0]
+                                new_values.append(value[0], range)
+                                # 
+                                value[0] = value[0] + range
+                                value[1] -= range
+                            # end of the current value range is between map range
+                            if map_range[1] <= value[0]+value[1] < map_range[0]+map_range[1]:
+                                range = min(value[0]+value[1], map_range[0]+map_range[1]) - value[0]
+                                new_values.append(value[0], range)
+                                value[0] = value[0] + range
+                                value[1] -= range
                         
                     # if the value is in the current range, sets value to values and break
                     if  map_range[1] <= value < map_range[1] + map_range[2]:
