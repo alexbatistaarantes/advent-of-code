@@ -12,7 +12,7 @@
             "env": {
                 "PYTHONPATH": "${workspaceRoot}",
             },
-            "purpose": ["debug-test", "debug-in-terminal"],
+            "purpose": ["debug-test"],
         }
     ]
 }
